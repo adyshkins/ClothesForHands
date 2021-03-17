@@ -21,7 +21,7 @@ namespace ClothesForHands
     /// </summary>
     public partial class ListMaterialWindow : Window
     {
-        public ListMaterialWindow()
+        public ListMaterialWindow()//
         {
             InitializeComponent();
             lvMaterialList.ItemsSource = Context.Material.ToList();
