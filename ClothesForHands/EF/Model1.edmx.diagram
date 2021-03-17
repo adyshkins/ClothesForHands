@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc18ce40c41342ed8816f6aad54c69b3" Name="Diagram1">
+        <EntityTypeShape EntityType="PerchatkyModel.Material" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerchatkyModel.MaterialSupp" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerchatkyModel.Supplier" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerchatkyModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerchatkyModel.TypeMaterial" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerchatkyModel.TypeSupp" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerchatkyModel.UntType" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="PerchatkyModel.FK_Material_TypeMaterial" ManuallyRouted="false" />
+        <AssociationConnector Association="PerchatkyModel.FK_Material_UntType" ManuallyRouted="false" />
+        <AssociationConnector Association="PerchatkyModel.FK_MaterialSupp_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="PerchatkyModel.FK_MaterialSupp_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="PerchatkyModel.FK_Supplier_TypeSupp" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

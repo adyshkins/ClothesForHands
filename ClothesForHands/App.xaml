@@ -1,0 +1,9 @@
+﻿<Application x:Class="ClothesForHands.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ClothesForHands"
+             StartupUri="Windows/ListMaterialWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
