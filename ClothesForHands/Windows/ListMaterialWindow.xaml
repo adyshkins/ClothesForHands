@@ -32,7 +32,7 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" 
                    FontFamily="Candara"/>
-       
+
         <!-- Строка сортировка и поиск -->
 
         <WrapPanel Grid.Row="2"
@@ -73,8 +73,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1"
-                Width="800"
-                Height="70">
+                            BorderBrush="Black"
+                            Width="1200"
+                            Height="100"
+                            HorizontalAlignment="Center">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150"/>
@@ -82,15 +84,24 @@
                                 <ColumnDefinition Width="150"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Grid.Column="0"/>
+                            <Image Grid.Column="0"
+                                   Margin="20 0">
+                                <Image.Source>
+                                    <Binding Path="GetImage">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/ClothesForHands;component/Resourses/picture.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
 
                             <StackPanel Grid.Column="1">
                                 <WrapPanel>
                                     <TextBlock Text="Тип материала: "
                                FontFamily="Candara"
                                FontSize="15"
-                               Margin="20 3 0 3"/>
-                                    <TextBlock Text="Тип "
+                               Margin="5 3 0 3"/>
+                                    <TextBlock Text="{Binding TypeMaterial.Name}"
                                FontFamily="Candara"
                                FontSize="15"
                                Margin="20 3 0 3"/>
@@ -98,7 +109,7 @@
                                FontFamily="Candara"
                                FontSize="15"
                                Margin="20 3 0 3"/>
-                                    <TextBlock Text="Наименование"
+                                    <TextBlock Text="{Binding Name}"
                                FontFamily="Candara"
                                FontSize="15"
                                Margin="20 3 0 3"/>
@@ -110,7 +121,7 @@
                                FontSize="15"
                                Margin="20 3 0 3"/>
 
-                                    <TextBlock Text="количество"
+                                    <TextBlock Text="{Binding MinCount}"
                                FontFamily="Candara"
                                FontSize="15"
                                Margin="20 3 0 3"/>
@@ -145,6 +156,13 @@
                             <StackPanel Grid.Column="2">
                                 <TextBlock  
                            Text="Остаток"
+                           FontFamily="Candara"
+                           FontSize="15"
+                           Margin="20 3 0 3"
+                           HorizontalAlignment="Center"/>
+
+                                <TextBlock  
+                           Text="{Binding Count}"
                            FontFamily="Candara"
                            FontSize="15"
                            Margin="20 3 0 3"

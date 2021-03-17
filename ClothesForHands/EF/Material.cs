@@ -24,13 +24,13 @@ namespace ClothesForHands.EF
         public string Name { get; set; }
         public string Size { get; set; }
         public int TypeId { get; set; }
-        public string Image { get; set; }
+        public string Image { get; set; }        
         public decimal Price { get; set; }
         public int Count { get; set; }
         public int MinCount { get; set; }
         public int CountInBox { get; set; }
         public int TypeDimension { get; set; }
-    
+
         public virtual TypeMaterial TypeMaterial { get; set; }
         public virtual UntType UntType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

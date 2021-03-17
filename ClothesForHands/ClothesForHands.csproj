@@ -76,6 +76,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ClassHelper\Material.cs" />
     <Compile Include="EF\AppData.cs" />
     <Compile Include="EF\Material.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -161,10 +162,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ClassHelper\" />
-    <Folder Include="PhotoMaterials\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="EF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -176,6 +174,29 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resourses\picture.png" />
+    <Resource Include="PhotoMaterials\materials\material_1.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_10.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_11.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_12.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_13.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_14.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_15.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_16.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_17.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_18.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_19.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_2.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_20.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_21.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_22.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_3.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_4.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_5.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_6.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_7.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_8.jpeg" />
+    <Resource Include="PhotoMaterials\materials\material_9.jpeg" />
     <Resource Include="Resourses\Logo.png" />
     <Resource Include="Resourses\iconWin.ico" />
   </ItemGroup>
