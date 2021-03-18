@@ -174,5 +174,45 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <WrapPanel Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button x:Name="btnBack" 
+                    Content="Назад"
+                    FontSize="15"
+                    Margin="5"
+                    Background="#FFFFFF"
+                    BorderThickness="0"
+                    Click="btnBack_Click"/>
+
+            <Button x:Name="btnGo1"
+                    Content="1"
+                    FontSize="15"
+                    Margin="5"
+                    Background="#A5E887"
+                    BorderThickness="0"/>
+
+            <Button x:Name="btnGo2"
+                    Content="2"
+                    FontSize="15"
+                    Margin="5"
+                    Background="#FFFFFF"
+                    BorderThickness="0"/>
+
+            <Button x:Name="btnGo3"
+                    Content="3"
+                    FontSize="15"
+                    Margin="5"
+                    Background="#FFFFFF"
+                    BorderThickness="0"
+                    />
+
+            <Button x:Name="btnNext"
+                    Content="Вперед"
+                    FontSize="15"
+                    Margin="5"
+                    Background="#FFFFFF"
+                    BorderThickness="0"
+                    Click="btnNext_Click"/>
+        </WrapPanel>
     </Grid>
 </Window>
