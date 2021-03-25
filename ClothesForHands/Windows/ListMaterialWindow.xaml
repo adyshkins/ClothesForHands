@@ -45,16 +45,17 @@
                      Margin="20 2"
                      VerticalContentAlignment="Center"
                      FontFamily="Candara"
-                     FontSize="18"/>
+                     FontSize="18"
+                     TextChanged="txtSearch_TextChanged"/>
 
             <ComboBox x:Name="cmbSort"
-                     Width="200"
                      Height="35"
                      VerticalAlignment="Center"
                      Margin="20 2"
                      VerticalContentAlignment="Center"
                      FontFamily="Candara"
-                     FontSize="18"/>
+                     FontSize="18"
+                      SelectionChanged="cmbSort_SelectionChanged"/>
 
             <ComboBox x:Name="cmbFiltr"
                      Width="200"
@@ -63,20 +64,45 @@
                      Margin="20 2"
                      VerticalContentAlignment="Center"
                      FontFamily="Candara"
-                     FontSize="18"/>
+                     FontSize="18"
+                      SelectionChanged="cmbFiltr_SelectionChanged"/>
         </WrapPanel>
+
+        <TextBlock Grid.Row="2" 
+                   HorizontalAlignment="Right"
+                   Margin="0 0 30 0"
+                   VerticalAlignment="Center">
+            <Run x:Name="txtCountOnPage"
+                 FontFamily="Candara"
+                 FontSize="15"/>
+            
+            <Run Text=" записей "
+                 FontFamily="Candara"
+                 FontSize="15"/>            
+            
+            <Run Text=" из "
+                 FontFamily="Candara"
+                 FontSize="15"/>
+            
+            <Run x:Name="txtAllCount"
+                 FontFamily="Candara"
+                 FontSize="15"/>
+        </TextBlock>
 
         <!-- Список материалов -->
 
         <ListView x:Name="lvMaterialList"
-                  Grid.Row="3">
+                  Grid.Row="3" 
+                  SelectionMode ="Multiple"
+                  SelectionChanged="lvMaterialList_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1"
                             BorderBrush="Black"
                             Width="1200"
                             Height="100"
-                            HorizontalAlignment="Center">
+                            HorizontalAlignment="Center"
+                            Background="{Binding GetColor}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150"/>
@@ -96,61 +122,23 @@
                             </Image>
 
                             <StackPanel Grid.Column="1">
-                                <WrapPanel>
-                                    <TextBlock Text="Тип материала: "
-                               FontFamily="Candara"
-                               FontSize="15"
-                               Margin="5 3 0 3"/>
-                                    <TextBlock Text="{Binding TypeMaterial.Name}"
-                               FontFamily="Candara"
-                               FontSize="15"
-                               Margin="20 3 0 3"/>
-                                    <TextBlock Text="|   Наименование материала:"
-                               FontFamily="Candara"
-                               FontSize="15"
-                               Margin="20 3 0 3"/>
-                                    <TextBlock Text="{Binding Name}"
-                               FontFamily="Candara"
-                               FontSize="15"
-                               Margin="20 3 0 3"/>
-                                </WrapPanel>
 
-                                <WrapPanel>
-                                    <TextBlock Text="Минимальное количество"
+                                <TextBlock Text="{Binding GetTypeAndName}"
                                FontFamily="Candara"
                                FontSize="15"
                                Margin="20 3 0 3"/>
 
-                                    <TextBlock Text="{Binding MinCount}"
+                                    <TextBlock Text="{Binding GetMinCount}"
                                FontFamily="Candara"
                                FontSize="15"
                                Margin="20 3 0 3"/>
 
-                                    <TextBlock Text="шт."
-                               FontFamily="Candara"
-                               FontSize="15"
-                               Margin="20 3 0 3"/>
-
-                                </WrapPanel>
-
-                                <WrapPanel>
-                                    <TextBlock Text="Поставщики:"
+                                <TextBlock Text="{Binding GetSupp}"
                                FontFamily="Candara"
                                FontSize="15"
                                Margin="20 3 0 3"
-                               FontWeight="Bold"/>
-                                    <TextBlock Text="список поставщиков"
-                               FontFamily="Candara"
-                               FontSize="15"
-                               Margin="20 3 0 3"/>
-                                </WrapPanel>
+                               FontWeight="Bold"/>         
 
-
-
-                                <TextBlock Text="Постащики"
-                               FontFamily="Candara"
-                               FontSize="15"
-                               Margin="20 3 0 3"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2">
@@ -175,6 +163,21 @@
             </ListView.ItemTemplate>
         </ListView>
 
+        <!-- Кнопки для добавления изменния -->
+
+        <WrapPanel Grid.Row="4" 
+                   HorizontalAlignment="Center"
+                   Margin="200 0 0 0"
+                   VerticalAlignment="Center">
+            
+            <Button x:Name="btnEditMinCount"
+                    Content="Изменить минимальное количество на ..."
+                    FontFamily="Candara"
+                    FontSize="15"
+                    Margin="20 3 0 3"
+                    Click="btnEditMinCount_Click"/>
+        </WrapPanel>
+        <!-- Навигация по станицам -->
         <WrapPanel Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button x:Name="btnBack" 
                     Content="Назад"
