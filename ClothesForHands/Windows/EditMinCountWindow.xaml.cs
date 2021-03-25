@@ -24,13 +24,7 @@ namespace ClothesForHands.Windows
             InitializeComponent();
             txtMinCount.Text = ClassHelper.SelectMaterial.editMinCountMaterial.ToString();
         }
-
-        public EditMinCountWindow(int minCount)
-        {
-            InitializeComponent();
-            
-        }
-
+               
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
             ClassHelper.SelectMaterial.editMinCountMaterial = Int32.Parse(txtMinCount.Text);

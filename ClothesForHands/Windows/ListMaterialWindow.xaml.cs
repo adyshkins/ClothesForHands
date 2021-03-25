@@ -135,9 +135,23 @@ namespace ClothesForHands
             {
                 numberPage--;
             }
+            btnGo1.Visibility = Visibility.Visible;
+            btnGo2.Visibility = Visibility.Visible;
+            btnGo3.Visibility = Visibility.Visible;
             btnGo1.Content = (numberPage + 1).ToString();
             btnGo2.Content = (numberPage + 2).ToString();
             btnGo3.Content = (numberPage + 3).ToString();
+
+            if (countPage < Convert.ToInt32(btnGo2.Content))
+            {
+                btnGo2.Visibility = Visibility.Collapsed;
+            }
+            if (countPage < Convert.ToInt32(btnGo3.Content))
+            {
+                btnGo3.Visibility = Visibility.Collapsed;
+            }
+
+            countPage = (materialsList.Count / 15) + 1;
             Filter();
         }
 
@@ -146,27 +160,23 @@ namespace ClothesForHands
             if (materialsList.Count >= 15)
             {
                 numberPage++;
-
-                if (numberPage > countPage)
-                {
-
-                }
-
+                btnGo1.Visibility = Visibility.Visible;
+                btnGo2.Visibility = Visibility.Visible;
+                btnGo3.Visibility = Visibility.Visible;
                 btnGo1.Content = (numberPage + 1).ToString();
                 btnGo2.Content = (numberPage + 2).ToString();
                 btnGo3.Content = (numberPage + 3).ToString();
 
-                countPage = (materialsList.Count / 15) + 1;
-
-                if (Convert.ToInt32(btnGo2.Content) > countPage)
+                if (countPage < Convert.ToInt32(btnGo2.Content))
                 {
                     btnGo2.Visibility = Visibility.Collapsed;
                 }
-
-                if (Convert.ToInt32(btnGo3.Content) > countPage)
+                if (countPage < Convert.ToInt32(btnGo3.Content))
                 {
                     btnGo3.Visibility = Visibility.Collapsed;
                 }
+
+                countPage = (materialsList.Count / 15) + 1;
 
             }
             
