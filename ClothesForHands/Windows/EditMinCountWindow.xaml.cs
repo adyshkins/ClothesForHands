@@ -22,16 +22,18 @@ namespace ClothesForHands.Windows
         public EditMinCountWindow()
         {
             InitializeComponent();
+            txtMinCount.Text = ClassHelper.SelectMaterial.editMinCountMaterial.ToString();
         }
 
         public EditMinCountWindow(int minCount)
         {
             InitializeComponent();
-            txtMinCount.Text = minCount.ToString();
+            
         }
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
+            ClassHelper.SelectMaterial.editMinCountMaterial = Int32.Parse(txtMinCount.Text);
             Close();
         }
     }

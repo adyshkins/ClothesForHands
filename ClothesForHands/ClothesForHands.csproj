@@ -81,6 +81,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ClassHelper\Material.cs" />
+    <Compile Include="ClassHelper\SelectMaterial.cs" />
     <Compile Include="EF\AppData.cs" />
     <Compile Include="EF\Material.cs">
       <DependentUpon>Model1.tt</DependentUpon>

@@ -27,10 +27,12 @@ namespace ClothesForHands
 
         List<Material> selectMaterials = new List<Material>();
 
-
-        int numberPege = 0;
-        int countOnPage;
+        
+        int numberPage = 0;
+        int countMaterialOnPage;
         int allCount;
+
+        int countPage = 0;
 
         List<string> listForSort = new List<string>()
         {
@@ -110,15 +112,18 @@ namespace ClothesForHands
 
             allCount = materialsList.Count;
 
+            countPage = (materialsList.Count / 15) + 1; // подсчет количества страниц если 15 записей на одной
+
+
             // постраничный вывод
             materialsList = materialsList.
-                Skip(numberPege * 15).
+                Skip(numberPage * 15).
                 Take(15).
                 ToList();
 
-            countOnPage = materialsList.Count;
+            countMaterialOnPage = materialsList.Count;
 
-            txtCountOnPage.Text = countOnPage.ToString();
+            txtCountOnPage.Text = countMaterialOnPage.ToString();
             txtAllCount.Text = allCount.ToString();
 
             lvMaterialList.ItemsSource = materialsList;
@@ -126,13 +131,13 @@ namespace ClothesForHands
 
         private void btnBack_Click(object sender, RoutedEventArgs e) // нажатиекнопки назад
         {
-            if (numberPege > 0)
+            if (numberPage > 0)
             {
-                numberPege--;
+                numberPage--;
             }
-            btnGo1.Content = (numberPege + 1).ToString();
-            btnGo2.Content = (numberPege + 2).ToString();
-            btnGo3.Content = (numberPege + 3).ToString();
+            btnGo1.Content = (numberPage + 1).ToString();
+            btnGo2.Content = (numberPage + 2).ToString();
+            btnGo3.Content = (numberPage + 3).ToString();
             Filter();
         }
 
@@ -140,13 +145,18 @@ namespace ClothesForHands
         {
             if (materialsList.Count >= 15)
             {
-                numberPege++;
-                
-                btnGo1.Content = (numberPege + 1).ToString();
-                btnGo2.Content = (numberPege + 2).ToString();
-                btnGo3.Content = (numberPege + 3).ToString();
+                numberPage++;
 
-                int countPage = (materialsList.Count / 15) + 1;
+                if (numberPage > countPage)
+                {
+
+                }
+
+                btnGo1.Content = (numberPage + 1).ToString();
+                btnGo2.Content = (numberPage + 2).ToString();
+                btnGo3.Content = (numberPage + 3).ToString();
+
+                countPage = (materialsList.Count / 15) + 1;
 
                 if (Convert.ToInt32(btnGo2.Content) > countPage)
                 {
@@ -181,20 +191,30 @@ namespace ClothesForHands
 
         private void lvMaterialList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnEditMinCount.Visibility = Visibility.Visible;
+            btnEditMinCount.Visibility = Visibility.Visible; // делаем кнопку Изменить минимальное количество видимой
         }
 
-        private void btnEditMinCount_Click(object sender, RoutedEventArgs e)
+        private void btnEditMinCount_Click(object sender, RoutedEventArgs e) 
         {
-            selectMaterials = lvMaterialList.SelectedItems as List<Material>;
-
-
-            if (selectMaterials != null)
+            
+            foreach (var material in (lvMaterialList.SelectedItems)) // добавляем в список выбранные маериалы
             {
-                EditMinCountWindow editMinCountWindow = new EditMinCountWindow(selectMaterials.Max(i => i.MinCount));
+                selectMaterials.Add(material as Material); 
+            }
+
+
+            if (selectMaterials != null) // если список выбранных материалов не пустой 
+            {
+                ClassHelper.SelectMaterial.editMinCountMaterial = selectMaterials.Max(i => i.MinCount); // передаем максимальное значение свойства MinCount в статический класс 
+                EditMinCountWindow editMinCountWindow = new EditMinCountWindow();
                 editMinCountWindow.ShowDialog();
+                foreach (var item in selectMaterials) // изменяем значение свойства MinCount всех выбранных материалов
+                {
+                    item.MinCount = ClassHelper.SelectMaterial.editMinCountMaterial;
+                }
+                Context.SaveChanges();
+                lvMaterialList.SelectedIndex = -1; // очищаем выбор
                 Filter();
-                
                 selectMaterials.Clear();
                 
             }
